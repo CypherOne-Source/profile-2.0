@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My Profile</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+  body {
+    font: 400 15px Lato, sans-serif;
+    line-height: 1.8;
+    color: #818181;
+  }
+  h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #303030;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    color: #303030;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }  
+  .jumbotron {
+    background-color: #f4511e;
+    color: #fff;
+    padding: 100px 25px;
+    font-family: Montserrat, sans-serif;
+  }
+  .container-fluid {
+    padding: 60px 50px;
+  }
+  .bg-grey {
+    background-color: #f6f6f6;
+  }
+  .logo-small {
+    color: #f4511e;
+    font-size: 50px;
+  }
+  .logo {
+    color: #f4511e;
+    font-size: 200px;
+  }
+  .thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+  }
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+  }
+  .carousel-control.right, .carousel-control.left {
+    background-image: none;
+    color: #f4511e;
+  }
+  .carousel-indicators li {
+    border-color: #f4511e;
+  }
+  .carousel-indicators li.active {
+    background-color: #f4511e;
+  }
+  .item h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    font-weight: 400;
+    font-style: italic;
+    margin: 70px 0;
+  }
+  .item span {
+    font-style: normal;
+  }
+  .panel {
+    border: 1px solid #f4511e; 
+    border-radius:0 !important;
+    transition: box-shadow 0.5s;
+  }
+  .panel:hover {
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .panel-footer .btn:hover {
+    border: 1px solid #f4511e;
+    background-color: #fff !important;
+    color: #f4511e;
+  }
+  .panel-heading {
+    color: #fff !important;
+    background-color: #f4511e !important;
+    padding: 25px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  .panel-footer {
+    background-color: white !important;
+  }
+  .panel-footer h3 {
+    font-size: 32px;
+  }
+  .panel-footer h4 {
+    color: #aaa;
+    font-size: 14px;
+  }
+  .panel-footer .btn {
+    margin: 15px 0;
+    background-color: #f4511e;
+    color: #fff;
+  }
+  .navbar {
+    margin-bottom: 0;
+    background-color: #f4511e;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #f4511e !important;
+    background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+  }
+  footer .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #f4511e;
+  }
+  .slideanim {visibility:hidden;}
+  .slide {
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+      width: 100%;
+      margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+      font-size: 150px;
+    }
+  }
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about"><strong>Me</strong></a></li>
+        <li><a href="#services"><strong>More about me</strong></a></li>
+        <li><a href="#portfolio"><strong>Reference</strong></a></li>
+        <li><a href="#contact"><strong>Get in touch</strong></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+  <h1>Blair Horgan</h1> 
+  <p><strong>An introduction to me</strong>.</p> 
+  <form>
+  </form>
+</div>
+
+<!-- Container (About Section) -->
+<div id="about" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-11">
+      <h3 class="text-capitalize">This is where you'll find out about me.</h3>
+      <br>
+      <h4>So I wanted to keep this as short as possible as well interesting, but more importantly I needed to be able to give you a little insight as to who I am.</h4>
+      <br>
+      <p>I generally dislike writing about myself as I prefer listening and learning from other people, Which is why I've always liked photography and that pointed me in the direction of becoming a photojournalist. Ok, so my name is Blair Daniel Horgan. In this day and age the in thing to do is to have a profile, even Linkd is doing it. If you ever need to contact my directly via email best one to use is bdh.images@gmail.com. Other relevant information is that my student ID is s3868252</p>
+          </div>
+    <div class="col-sm-11">
+      <p>Personality Tests.</p>
+      <p><strong>&nbsp;Myer-Briggs Type Indicator.</strong></p>
+      <p>&nbsp;INFJ Type Introvert&nbsp;</p>
+<p>(12%) intuitive (19%) Feeling (12%) Judging (3%) You have slight preference of Introversion over Extraversion (12%) You have slight preference of Intuition over Sensing (19%) You have slight preference of Feeling over Thinking (12%) You have marginal or no preference of Judging over Perceiving (3%) With the above test it also gives other relevant information with regards to possible job suggestions and how to use these results in business as well. With some further research it seems that this type of test is becoming more popular in general. I would have to say in relation to me, it is spot on. For me, one point stood out and this was... “With their strong sense of intuition and emotional understanding, INFJs can be soft-spoken and empathetic. This does not mean that they are push-over's, however. They have deeply held beliefs and an ability to act decisively in order to get what they want.” </p>
+      <p><strong>&nbsp;The Big Five Personality</strong></p>
+      <p>&nbsp;Test So, after taking the Big Five Personality test in gave me some interesting feedback, which closely relates to the Myer-Briggs Type Indicator, which basically points out several similar traits that I was already aware of. The results are as follows, Openness to experience 85 - (High Range Person) Imaginative • open-minded • experimental • prefers creative conceptual problem-solving. Conscientiousness 11 - (Low Range Person) Spontaneous • disorganized • prefers flexible plans • dislikes precise details. Extraversion 73 - (High Range Person) Outgoing • friendly • assertive • likes working with others • enjoys direct leadership roles. Agreeableness 94 - (High Range Person) Compassionate • eager to please • good natured • prefers co-operation over competition and conflict. Natural reactions 82 - (High Range Person) Experiences negative emotional reactions and feelings of anxiety • prone to worry • easily upset.&nbsp;</p>
+      <p><strong>Career Aptitude Test (Holland Codes)</strong> So, the results of the Holland codes are 'ISCARE'. Which means 'Investigative' the most, followed by 'Social' and 'Conventional'. Your six-letter personality type is 'ISCARE'. Basically, the results suggest that I prefer a more investigative approach to what I do work wise with some basic Social and Conventional methods to what careers might suit me. </p>
+      <p>Overall, what do the above testing and results mean to me?&nbsp; I find myself a curious type of person, I enjoy researching, I am compassionate, I guess I enjoy different methods of solving problems and I know that I get along with most people.&nbsp; &nbsp;&nbsp;</p>
+<p> <span class="logo"> </span></p>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-grey">
+  <div class="row">
+    <div>
+      <span class="slideanim"></span>
+    </div>
+    <div class="col-sm-12">
+      <h3> The IT Related stuff.</h3>
+      <br>
+      <h4 class="text-capitalize">Below you'll find the reasoning and what I find passionate about IT.&nbsp;&nbsp;</h4>
+      <br>
+      <p><strong>Why I chose IT and what I like about IT.&nbsp;</strong></p>
+      <p>Well, I guess way back in the days of mIRC and ICQ, I always had an interest. It gave me a chance to socialize and tinker and learn new things. I can remember taking the time and learning what was needed to become SysOps and admin duties and basically pestering other Admins to teach me how things worked. On the other hand, I can remember getting a graphics card for my dad's computer and despite my dad telling me not to mess around with it I pretty much did which resulted in me getting dressed down, but afterwards dad was rather impressed with my efforts. I think it was from that point on I was hooked on all things IT and computer related stuff.&nbsp;</p>
+      <p>When it comes to my personal IT experiences, I’ve mostly spent time doing more Social Media, Graphic design related stuff which then lends itself to actual IT. I’ve spent the last few years managing my own Facebook pages, keeping a regular blog updated which is no longer active as I just haven’t got the time spare anymore. Being a photojournalist, I’ve had to keep my own portfolio running, registering a domain and maintaining that along with general upkeep, self-taught with regards cloud-based hosting while travelling overseas and making sure everything was working correctly. You pretty much need to do all that sort of stuff on your own.</p>
+      <p>&nbsp;I tend to like pushing myself, teaching myself new things that basically would help me while on location. Why did I choose RMIT and what do I expect to learn in my time here? Well after Covid19 hit it pretty much put my photojournalism on hold and it was a case of sink or swim, do I wait and see how it all pans out or do I upskill and try something new. I did a lot of research before committing to doing this degree and after all that RMIT suited what I needed. Everything was online, the timeframe suited, and I was already used to doing online studies. RMIT came highly recommended, plus I had previously dealt with Open Universities Australia and the staff were helpful and offered me the best choices to move forward with that.&nbsp;</p>
+<p>As for what do I expect or what outcomes am I seeking? I firstly want to be better equipped with dealing with a wide range of IT skills and have a better understanding on what makes IT tick. I haven’t a 100% nailed down where I want to go with this, I mean there are so many things to learn and understand. I must admit I do like web design, throw in a little UI/UX as well. But if I would have to say one thing that I'm interested in is, Cyber security and what that involves. I guess being able to help make sure others have a better understanding, so people understand the risk and implementing checks in place. &nbsp;</p>
+<p><strong>&nbsp;Onwards.</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Services Section) -->
+<div id="services" class="container-fluid text-center">
+ 
+  <br>
+  <div class="row slideanim">
+    <div class="col-sm-12">
+      <span class="glyphicon logo-small"></span>
+      <h3>Ideal IT job.</h3>
+      <p>Information Security Governance Lead.</p>
+      <p>Taken from Information Security Governance Lead Advertisement Seek.com.au 19/06/2020. Reporting to the Senior Information Security Manager, the Information Security Governance Lead will be responsible for assisting the Information Security (InfoSec) team to maintain and continuously improve the Security posture and certifications through governance and compliance activities, certification and audit reviews and risk assessments. Further, this role is tasked with operational responsibilities for reporting across application testing, pentesting and vulnerability management programs. The above listed job is from a payroll company that has been for around 50 years. Offering its services to all forms of business, government departments and even startup companies.&nbsp;</p>
+      <p>This listed job is seeking someone to take lead and report directly to the Senior Information Security Manager and then follow and comply with current standards set out in ISO27001 ISMS. You would need to have a broad understanding of the current security and privacy principles, plus have knowledge of the Australian Financial Sector. The Info Sec lead would need take charge of current Cyber Security risks, with understanding of Risk management, codes of practices/standards in line with the current climate. Skills needed for this job may include all Cyber Security standards, codes of practices and an understanding of Pentesting, certification of these rules, standards as well. I think it would be helpful to understand how the Australian Financial sector and businesses work.&nbsp;</p>
+      <p>Have a good knowledge of risk management and how cyber security frameworks operate. A good set of communication, writing skills and be able to work in a group environment as well would be vital. I would think that it would be crucial in having certification in the standards, practices in the various Cyber Security Risk management, Information handling would be relevant as well. As for what can I bring to this job already or how would I seek out those needed for this job or something similar? I would have to say that, currently I don’t think I have anything remotely close to what's needed, but as for getting those skills in the future would involve completing this degree, with further training or degree’s in Cyber Security or anything else relevant to this kind of work. Getting the certifications in the current standards, such as ISO27001. &nbsp;</p>
+    </div>
+    <div>
+      
+      
+    
+      <span class="glyphicon logo-small"></span>
+            
+      
+    </div>
+  </div>
+  <p> <strong><br>
+    </strong></p>
+  <img src="Project Athena.png" alt="Flowers in Chania" width="820" height="312">
+    <br>
+  
+<div>
+   
+      <span class="glyphicon logo-small"></span>
+
+  </div>
+  <div class="col-sm-12">
+      <span class="glyphicon logo-small"></span>
+    <h4 class="text-center">What is it?</h4>
+    <p>&nbsp;Project Athena. The basics for Athena (working title) is simple. Most people avoid it, some simply ignore it. Cyber security tends to bore people. Non-Tech savvy people wouldn’t for the most part have any idea until it's too late. The principle is simple, Offer a Software as a Service. Offer something different and give people better education when it comes to understanding the perils of being online. I can name a handful of family and friends who thinks it’s a simple as having an Anti-Virus program installed and that’s all that’s needed. I honestly believe that there needs to be better education on what Cyber Security is all about. What motivates me? Why am I so passionate about educating everyone? It’s simple I have family, friends and even my children who are social media active, who use tik-tok every day and have no idea of the risk that are lurking out there. I want to be able to offer a range of services, an app, web-based education. Is it a lot to take on? Sure, it is, because every day there's new risk. But I believe that just one person can make a difference. What will I be offering, what exactly will it do? If you look at the consensus of the likes of AVG, Mcafee anti-virus or Malware software people get bombarded by it in Google searches, email spam and even the likes of Facebook with targeted ads, sponsored advertising. This project or SaaS is more than that, It comes down to grassroots level service. People sign up, that get a better education when it comes to having an online presence, that get access to our services wherever they are. Bottom line is, it’s for the people run by me.&nbsp;</p>
+      <p>With recent events, more and more cyber-attacks and what can only be something that’s going to get worse. Athena (WIP) will be simple and effective and not some big corporation that people are afraid to deal with, afraid to call tech support. They’ll have an app to access be it iOS or Android, it will have web-based access, people can ask for help, ask for better cyber security education. People can say, “Hey I don’t understand this, can you help? “I want to be said yes I can. I want to all the nana’s, they grandparents who aren’t tech savvy. That’s what I want to offer. Onwards, what’s needed? Or how do I get there and what sort of problems will I encounter? I think that the How or what sections are simple. With the likes of Apples app development program and even with MIT App Inventor make this a lot easier. I have already signed up with Apples iOS developer program and started poking around with MIT app maker. Of course, being certified and properly educated with the right skill set is a huge plus. The web-based side of things will need to be scalable, be able to handle large numbers, a solid framework. It will obviously need a service like Cloudflare's DDos protection services, a reliable and safe web host/domain services and decent backup servers. Skill that I’d need to be able to get this up and running, being certified in CISM, Cyber Security protocols, a good understanding of pentesting, Android/iOS certified. Be able to maintain cloud base tech, Have the skills to be able to maintain web hosting and domain name security. </p>
+<p>&nbsp;</p>
+    </div>
+    <div>
+      <span class="glyphicon logo-small"></span>
+      
+
+    </div>
+</div>
+
+	
+
+<!-- Container (Portfolio Section) -->
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <br>
+  <h4>Reference Docs.&nbsp;</h4>
+  <div class="row text-center slideanim">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="Screenshot_2020-06-20 Information Security Governance Lead Job in Sydney.png" alt="seek.job" width="942" height="707">
+        <p><a href="shorturl.at/lACJ4">Information Security Governance Seek Job Listing.</a></p>
+        
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="ISO_IEC.png" alt="candid" width="500" height="241">
+		  <p><a href="https://en.wikipedia.org/wiki/ISO/IEC_27001">ISO/IEC/ISMS Wiki Link.</a></p>
+        
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="Reference logo.png" alt="cyber.logo" width="500" height="500">
+        <p><a href="shorturl.at/jqvIW">Latest Cyber Security News.</a></p>
+              </div>
+    </div>
+  </div><br>
+    
+  </div>
+
+
+
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-left">CONTACT</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Contact us and we'll get back to you within 24 hours.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Burnie,Tasmania&nbsp;</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +61 36313727</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> <a href="mailto:cypherone.designs@gmail.com">Send email</a></p>
+    </div>
+    <div class="slideanim">
+      <div class="row">
+        <div> </div>
+        <div> </div>
+      </div>
+<br>
+      <div class="row">
+        <div> </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Image of location/map -->
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
+</body>
+</html>
